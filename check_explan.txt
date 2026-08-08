@@ -1,0 +1,28 @@
+check_git は GitHub Pages などで公開できる静的サイトです。
+
+公開されるページ
+・/             サイト選択
+・/check-sites/n0_women/  n0 の check
+・/check-sites/n1_women/  n1 の check
+・/check-sites/n3_women/  n3 の check
+・/check-sites/n6_women/  n6 の check
+
+履歴
+評価、写真不良、現在位置はブラウザの localStorage に自動保存されます。
+同じブラウザ・同じ公開URLで再度開くと続きから再開できます。
+別端末や別ブラウザには引き継がれません。
+
+ローカル確認
+1. cd check_git
+2. python3 -m http.server 8080
+3. http://localhost:8080/ を開く
+
+画像を差し替えた場合
+python3 build_static.py
+を実行し、check-sites 内の各サイトを更新してください。
+
+GitHub Pages で公開
+1. check_git の内容を GitHub リポジトリへ push
+2. GitHub の Settings → Pages を開く
+3. Deploy from a branch を選び、公開対象の branch とフォルダを指定
+4. 発行された URL を開く

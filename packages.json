@@ -1,0 +1,24 @@
+{
+  "packages": [
+    {
+      "id": "n0_women",
+      "label": "n0",
+      "image_dir": "MLdata/result_ML_women_n0_nobgfull"
+    },
+    {
+      "id": "n1_women",
+      "label": "n1",
+      "image_dir": "MLdata/result_ML_women_n1_nobgfull"
+    },
+    {
+      "id": "n3_women",
+      "label": "n3",
+      "image_dir": "MLdata/result_ML_women_n3_nobgfull"
+    },
+    {
+      "id": "n6_women",
+      "label": "n6",
+      "image_dir": "MLdata/result_ML_women_n6_nobgfull"
+    }
+  ]
+}
