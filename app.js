@@ -23,7 +23,7 @@ const outfitImg = document.getElementById('outfit-image');
 const imgLoading = document.getElementById('image-loading');
 const currentLabelEl = document.getElementById('current-label');
 const currentRankEl = document.getElementById('current-rank');
-const averageScoreEl = document.getElementById('average-score');
+// const averageScoreEl = document.getElementById('average-score');
 const totalCirclesEl = document.getElementById('total-circles');
 const progressFill = document.getElementById('progress-fill');
 const progressText = document.getElementById('progress-text');
@@ -415,8 +415,8 @@ function updateStatistics() {
     });
 
     const total = IMAGES.length;
-    const average = total ? (totalCircleCount / total) * 100 : 0;
-    averageScoreEl.innerText = `${average.toFixed(1)}%`;
+    // const average = total ? (totalCircleCount / total) * 100 : 0;
+    // averageScoreEl.innerText = `${average.toFixed(1)}%`;
     totalCirclesEl.innerText = `${totalCircleCount} / ${total}`;
 
     const progressPercent = total ? (ratedCount / total) * 100 : 0;
