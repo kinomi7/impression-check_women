@@ -11,9 +11,24 @@
       "image_dir": "MLdata/result_ML_women_n1_nobgfull"
     },
     {
+      "id": "n2_women",
+      "label": "n2",
+      "image_dir": "MLdata/result_ML_women_n2_nobgfull"
+    },
+    {
       "id": "n3_women",
       "label": "n3",
       "image_dir": "MLdata/result_ML_women_n3_nobgfull"
+    },
+    {
+      "id": "n4_women",
+      "label": "n4",
+      "image_dir": "MLdata/result_ML_women_n4_nobgfull"
+    },
+    {
+      "id": "n5_women",
+      "label": "n5",
+      "image_dir": "MLdata/result_ML_women_n5_nobgfull"
     },
     {
       "id": "n6_women",

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コーデ印象判定システム</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <div id="app-loading" class="app-loading">
+        <div class="spinner"></div>
+        <p>画像リストを読み込み中...</p>
+    </div>
+    <div id="app-error" class="app-error" hidden>
+        <p id="app-error-message"></p>
+        <p class="app-error-hint">ページを再読み込みしてください。</p>
+    </div>
+
+    <div class="app-container" id="app-container" hidden>
+        <header class="app-header">
+            <div class="header-left">
+                <h1>Impression Rating System</h1>
+                <p class="subtitle">DINOv2 ML Recommendation Classifier Review</p>
+                <span class="rater-badge" id="rater-badge" hidden></span>
+            </div>
+            <div class="header-right">
+                <div class="stat-card">
+                    <span class="stat-label">◯ の総数</span>
+                    <span class="stat-value" id="total-circles">0 / 0</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar-fill" id="progress-fill" style="width: 0%;"></div>
+            </div>
+            <div class="progress-text" id="progress-text">0 / 0 (0%)</div>
+        </div>
+
+        <main class="main-content">
+            <section class="image-panel">
+                <div class="panel-header">
+                    <span class="label-badge" id="current-label">-</span>
+                    <span class="rank-badge" id="current-rank">Rank -/-</span>
+                </div>
+                <div class="image-area-wrapper">
+                    <div class="image-frame">
+                        <img id="outfit-image" src="" alt="コーデ画像">
+                        <div id="image-loading" class="spinner"></div>
+                    </div>
+                    <button class="btn btn-bad" id="btn-bad" title="写真不良としてマーク">
+                        <span class="btn-bad-icon">⚠️</span>
+                        <span class="btn-bad-text">写真<br>不良</span>
+                    </button>
+                </div>
+
+                <div class="decision-container">
+                    <button class="btn btn-decision btn-cross" id="btn-cross" title="不適合 (Fキー)">
+                        <span class="btn-icon">✕</span>
+                        <span class="btn-text">不適合</span>
+                    </button>
+                    <button class="btn btn-decision btn-circle" id="btn-circle" title="適合 (Jキー)">
+                        <span class="btn-icon">◯</span>
+                        <span class="btn-text">適合</span>
+                    </button>
+                </div>
+
+                <div class="navigation-controls">
+                    <button class="btn btn-nav" id="btn-prev" disabled><span>← 前の画像</span></button>
+                    <button class="btn btn-nav" id="btn-next"><span>次の画像 →</span></button>
+                </div>
+
+                <div class="keyboard-guide">
+                    ショートカットキー: <span>F</span> で不適合、<span>J</span> で適合
+                </div>
+            </section>
+
+            <section class="info-panel">
+                <div class="card grid-card">
+                    <h2>2軸の印象マップ (強調位置)</h2>
+                    <p class="card-desc">現在の画像の予測印象値に対応するセルが光ります</p>
+                    <div class="coordinate-graph-wrapper">
+                        <div class="y-axis-title">▲ SOFT</div>
+                        <div class="graph-layout">
+                            <div class="y-axis-scale" id="y-axis-scale"></div>
+                            <div class="grid-graph" id="impressive-grid"></div>
+                        </div>
+                        <div class="x-axis-wrapper">
+                            <div class="x-axis-scale" id="x-axis-scale"></div>
+                            <div class="x-axis-title">ELEGANT ▶</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card label-breakdown-card">
+                    <h2 id="label-breakdown-title">ラベル別の ◯ 獲得数</h2>
+                    <div class="label-list" id="label-breakdown-list"></div>
+                </div>
+
+                <div class="card actions-card">
+                    <button class="btn btn-action btn-export" id="btn-export">CSV結果をエクスポート</button>
+                    <button class="btn btn-action btn-reset" id="btn-reset">データをリセット</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script
+        src="../../app.js"
+        onerror="document.getElementById('app-loading').hidden=true;document.getElementById('app-error').hidden=false;document.getElementById('app-error-message').textContent='アプリの読み込みに失敗しました。ページを再読み込みしてください。';"
+    ></script>
+</body>
+</html>
